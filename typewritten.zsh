@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#TYPEWRITTEN_PREFIX!/usr/bin/env zsh
 
 #      ____ ____ ____ ____ ____ ____ ____ ____ ____ ____ ____
 #     ||t |||y |||p |||e |||w |||r |||i |||t |||t |||e |||n ||
@@ -176,6 +176,9 @@ tw_redraw() {
       RPROMPT="$tw_right_prompt_prefix$tw_displayed_wd$tw_git_arrow_info"
     fi;
   fi;
+
+
+  PROMPT="%{$(iterm2_prompt_mark)%}$PROMPT%{$(iterm2_prompt_end)%}"
 
   zle -R && zle reset-prompt
 }
