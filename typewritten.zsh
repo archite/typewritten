@@ -178,7 +178,9 @@ tw_redraw() {
   fi;
 
 
-  PROMPT="%{$(iterm2_prompt_mark)%}$PROMPT%{$(iterm2_prompt_end)%}"
+  if (( $+functions[iterm2_prompt_mark] )); then
+    PROMPT="%{$(iterm2_prompt_mark)%}$PROMPT%{$(iterm2_prompt_end)%}"
+  fi
 
   zle -R && zle reset-prompt
 }
