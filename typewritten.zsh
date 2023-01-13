@@ -143,7 +143,7 @@ tw_redraw() {
   local tw_git_info="$tw_prompt_data[tw_git_branch]$tw_prompt_data[tw_git_status]"
 
   if [ "$tw_layout" = "half_pure" ]; then
-    PROMPT="$BREAK_LINE%F{$tw_git_branch_color}$tw_git_info$BREAK_LINE$tw_full_prompt"
+    PROMPT="%F{$tw_git_branch_color}$tw_git_info$BREAK_LINE$tw_full_prompt"
     RPROMPT="$(tw_get_right_prompt_prefix)$tw_displayed_wd"
   else
     local tw_git_arrow_info=""
@@ -157,12 +157,12 @@ tw_redraw() {
     RPROMPT="$tw_right_prompt_prefix$tw_displayed_wd$tw_git_arrow_info"
 
     if [ "$tw_layout" = "pure" ]; then
-      PROMPT="$BREAK_LINE$tw_displayed_wd$tw_git_arrow_info$BREAK_LINE$tw_full_prompt"
+      PROMPT="$tw_displayed_wd$tw_git_arrow_info$BREAK_LINE$tw_full_prompt"
       RPROMPT=""
     fi;
 
     if [ "$tw_layout" = "pure_verbose" ]; then
-      PROMPT="$BREAK_LINE$tw_user_host $tw_displayed_wd$tw_git_arrow_info$BREAK_LINE$tw_full_prompt"
+      PROMPT="$tw_user_host $tw_displayed_wd$tw_git_arrow_info$BREAK_LINE$tw_full_prompt"
       RPROMPT=""
     fi;
 
@@ -172,7 +172,7 @@ tw_redraw() {
     fi;
 
     if [ "$tw_layout" = "multiline" ]; then
-      PROMPT="$BREAK_LINE$tw_user_host$BREAK_LINE$tw_full_prompt"
+      PROMPT="$tw_user_host$BREAK_LINE$tw_full_prompt"
       RPROMPT="$tw_right_prompt_prefix$tw_displayed_wd$tw_git_arrow_info"
     fi;
   fi;
